@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "create new folders"
+mkdir title_1 title_2 title_3
+
+echo "change directory to title_1"
+cd title_1
+
+echo "create files inside title_1"
+touch 1.txt 2.txt 3.txt 1.json 2.json
+
+echo "change new folders inside title_1"
+mkdir first second third
+
+echo "display items in title_1"
+ls -la
+
+echo "copy files"
+cp test_title/title_1/{1.json,1.txt} test_title/title_2
+
+
