@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "780fb2e6-a129-4679-9dd5-783c5b13fdaf",
+		"_postman_id": "c8e181bf-4197-4590-a856-4c59968dcd0b",
 		"name": "HW Postman 2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -430,6 +430,75 @@
 						"get_test_user"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "currency",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseData = pm.response.json();",
+							"const arrayLength = responseData.length",
+							"",
+							"// generate random index in range .... getRandomInRange(min, max lenght)",
+							"function getRandomInRange(min, max) {",
+							"  return Math.floor(Math.random() * (max - min + 1)) + min;",
+							"}",
+							"",
+							"const randomIndex = getRandomInRange(0, arrayLength-1)",
+							"let randomId = responseData[randomIndex].Cur_ID;",
+							"pm.environment.set('Cur_ID', randomId);",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "auth_token",
+							"value": "{{token}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/currency",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"currency"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "curr_byn",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
 			},
 			"response": []
 		}
