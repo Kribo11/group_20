@@ -30,6 +30,17 @@ Select * from Printer Where color='y'
 --------------------------------------
 Select model, speed, hd from PC WHERE (cd= '12x' or '24x') AND price<600
 ============================================================================
+Задание: 7
+Найдите номера моделей и цены всех имеющихся в продаже продуктов (любого типа) производителя B (латинская буква).
+------------------------------------------------------------------------------
+SELECT Product.model as model, price
+FROM Product INNER JOIN PC ON PC.model = Product.model where maker=('B')
+UNION
+SELECT Product.model as model, price
+FROM Product INNER JOIN PRINTER ON PRINTER.model = Product.model where maker=('B')
+UNION
+SELECT Product.model as model, price
+FROM Product INNER JOIN LAPTOP ON LAPTOP.model = Product.model where maker=('B')
 
 
 
