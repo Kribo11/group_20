@@ -130,7 +130,17 @@ Select Ships.class, name, country From Ships INNER JOIN Classes ON Ships.class=C
 Select hd from PC group by hd HAVING COUNT(hd) > 1
 
 
+=============================================================
+Задание: 19
 
+Для каждого производителя, имеющего модели в таблице Laptop, найдите средний размер экрана выпускаемых им ПК-блокнотов.
+Вывести: maker, средний размер экрана.
+
+-------------------------------------------------------
+Решение:
+Select hd from PC group by hd HAVING COUNT(hd) > 1
+
+Select maker, AVG(screen) AS screen From Product INNER JOIN Laptop ON Laptop.model=Product.model GROUP BY maker
 
 
 
